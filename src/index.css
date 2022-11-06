@@ -1,0 +1,164 @@
+/*
+To test if this style sheet is connected to index.js
+body {
+  display: none;
+}*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.card {
+  /*MAY NEED REPOSITONING*/
+  background-color: #fff;
+  color: #333;
+  border-radius: 15px;
+  padding: 40px 50px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.card.reverse {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+body {
+  font-family: "poppins", sans-serif;
+  background-color: #202142;
+  color: #fff;
+  line-height: 1.6;
+}
+.ul {
+  list-style: none;
+}
+.container {
+  max-width: 768px;
+  /*MORE*/
+}
+.feedback-stats {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.num-display {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.btn {
+  color: #fff;
+  border: 0;
+  /*more missing*/
+}
+
+.btn-primary {
+  background-color: #202142;
+}
+.btn-secondary {
+  background: #ff6a95;
+}
+
+.btn :hover {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+.btn:disabled {
+  background-color: #cccccc;
+  color: #333;
+  cursor: auto;
+}
+.btn:disabled:hover {
+  transform: scale(1);
+}
+.Message {
+  padding-top: 10px;
+  text-align: center;
+  color: rebeccapurple;
+}
+.about-link {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #fff;
+  cursor: crosshair;
+}
+
+.about-link a {
+  color: #fff;
+}
+.about-link a:hover {
+  color: #ff6a95;
+}
+
+.about h1 {
+  margin-bottom: 20px;
+}
+
+.about p {
+  margin: 10px 0;
+}
+
+/* MISLACED*/
+.rating li label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.rating li:hover,
+.num-display {
+  position: relative;
+  background: #f4f4f4;
+  width: 50px;
+  height: 50px;
+}
+
+/**/
+@media (max-width: 600px) {
+  .rating li {
+    margin: 10px 3px;
+  }
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  margin: 30px 0 40px;
+}
+
+.input-group {
+  width: 80%;
+}
