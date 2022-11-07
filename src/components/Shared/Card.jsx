@@ -9,8 +9,9 @@ function Card({ children, reverse }) {
     <div
       className="card"
       style={{
-        backgroundColor: reverse ? "rgba()0,0,0,0.4" : "#fff",
+        backgroundColor: reverse ? "rgba(0,0,0,0.4" : "#fff",
         color: reverse ? "#fff" : "rgba(o,0,0,0.4)",
+        /*HOW TO STYLE THE NUMBER TOO? */
       }}
     >
       {children}
