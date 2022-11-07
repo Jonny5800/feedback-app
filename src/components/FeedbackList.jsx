@@ -29,7 +29,7 @@ FeedbackList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       text: PropTypes.string.isRequired,
-      rrating: PropTypes.number.isRequired,
+      rating: PropTypes.number.isRequired,
     })
   ),
 };

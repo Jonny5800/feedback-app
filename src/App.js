@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackData from "./data/FeedbackData";
 import FeedbackStats from "./components/Shared/FeedbackStats";
+import FeedbackForm from "./components/Shared/FeedbackForm";
 //Below is JSX - allows writing HTML within components
 
 function App() {
@@ -14,14 +15,12 @@ function App() {
     if (window.confirm("Are you sure to delete?")) {
       setFeedback(feedback.filter((item) => item.id !== id));
     }
-    {
-      /*BELOW -want to set the feedback to the new array minus the idem beign deleted (its goins to set the feedback value in the CONST above) */
-    }
+
+    /*BELOW -want to set the feedback to the new array minus the idem beign deleted (its goins to set the feedback value in the CONST above) */
 
     console.log("from app", id);
-    {
-      /*this log checks that the log comes from the original onClick */
-    }
+
+    /*this log checks that the log comes from the original onClick */
   };
   return (
     <>
@@ -29,6 +28,7 @@ function App() {
        */}
       <Header /*{/*StyleVariable="red"*/ />
       <div className="container">
+        <FeedbackForm />
         <FeedbackStats
           feedback={
             feedback

@@ -38,7 +38,7 @@ function FeedbackItem({ item, handleDelete }) {
   //[nameOfPieceOfState, functionToUpdatePieceOfState (called "set" and then whatever the name is) ]
 
   return (
-    <Card reverse={1}>
+    <Card reverse={true}>
       {/*****ERROR***s - capital C for card causes an issue in the console */}
       <div className="num-display">{item.rating}</div>
       <button onClick={() => handleDelete(item.id)} className="close">
