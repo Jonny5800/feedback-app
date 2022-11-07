@@ -24,7 +24,7 @@ function Header({ text, bgColor, textColor }) {
 
 //Below - If nothing is specifically passed into the Header (text, a background color or color for text, these will be used as the default)
 Header.defaultProps = {
-  text: "FeedBack UIgfd",
+  text: "FeedBack thing",
   bgColor: "rgba(0,0,0,0.4)",
   textColor: "#ff6a95",
 };

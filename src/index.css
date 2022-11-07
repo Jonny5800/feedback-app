@@ -61,6 +61,13 @@ body {
   position: absolute;
   top: -10px;
   left: -10px;
+  /*added by me*/
+  background-color: #ff6a95;
+  color: #ff6a95;
+  border: 1px solid green;
+  border-radius: 20px;
+
+  /*added by me*/
 }
 .close {
   position: absolute;

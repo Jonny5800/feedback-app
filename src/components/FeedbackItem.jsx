@@ -1,3 +1,6 @@
+import { FaTimes } from "react-icons/fa";
+//FaTimes is the specifice icon being imported from FaIcons
+
 //import React from "react"; NOT NEEDED (rfce adds it in automatically)
 import Card from "./Shared/Card";
 import PropTypes from "prop-types";
@@ -12,7 +15,13 @@ import PropTypes from "prop-types";
 
 //The rating as well as the text can be part of the "state" here (state just being data)
 
-function FeedbackItem({ item }) {
+function FeedbackItem({ item, handleDelete }) {
+  /***********
+   HandleClick is removed bacause of handleDelete which comes in from feedbackList function
+  const handleClick = (id) => console.log(id);
+  //const handleClick = () => console.log(item.id) 
+  /******/
+
   //state in reaxt is immutable and so it has to be re-set because you cant directly change it like...xrating = 10x
   /*const handleClick = () => {
     setRating((values) => {
@@ -32,6 +41,10 @@ function FeedbackItem({ item }) {
     <Card reverse={1}>
       {/*****ERROR***s - capital C for card causes an issue in the console */}
       <div className="num-display">{item.rating}</div>
+      <button onClick={() => handleDelete(item.id)} className="close">
+        <FaTimes color="purple" />
+        {/*FaTimes is a component itself*/}
+      </button>
       <div className="text-display">{item.text}</div>
     </Card>
   );

@@ -1,7 +1,7 @@
 import FeedbackItem from "./FeedbackItem";
-import PropTypes from "prop-types ";
+import PropTypes from "prop-types";
 
-function FeedbackList({ feedback }) {
+function FeedbackList({ feedback, handleDelete }) {
   if (!feedback || feedback.length === 0) {
     return <p>No feedback </p>;
   }
@@ -12,12 +12,18 @@ function FeedbackList({ feedback }) {
       {/*Below - This is where "list was"*/}
       {feedback.map((item) => (
         /*"ITEM", in this case is whichever element is being iterated through at the time */
-        <FeedbackItem key={item.id} item={item} />
+        <FeedbackItem
+          key={item.id}
+          item={item}
+          handleDelete={handleDelete}
+          /***handleDelete={(id) => console.log(id)}.....This handleDelete LOG is replaced by the above line in order to forward the handleDelete towards App.js - it originates from FeedbackItem <button> onclick***/
+          /*^^HandleDelete is a prop for feedback item SO this means that handleDelete needs to be in the FeedbackItem function parenthesis*/
+        />
       ))}
     </div>
   );
 }
-
+//below - arrayOf
 FeedbackList.propTypes = {
   feedback: PropTypes.arrayOf(
     PropTypes.shape({
