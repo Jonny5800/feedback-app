@@ -1,6 +1,7 @@
 import { useState } from "react";
 /*Component level state - Typically when you have a form youre going to have apiece of state for each input in the form. So for the text input this requires setting a piece of state. To set that piece of state 'useState' hook is needed. Important that it says from "react" */
 import Card from "./Card";
+import Button from "./Button";
 
 function FeedbackForm() {
   //The text constant can be called anythinging
@@ -27,7 +28,7 @@ function FeedbackForm() {
             placeholder="Write a review"
             value={text}
           />
-          <button type="submit">Send</button>
+          <Button type="submit">Send</Button>
         </div>
       </form>
     </Card>
