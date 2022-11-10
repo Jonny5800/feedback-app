@@ -1,5 +1,4 @@
 import React from "react";
-import { FaMoneyBill } from "react-icons/fa";
 
 function RandomGreeting(props) {
   const { make, model } = props;

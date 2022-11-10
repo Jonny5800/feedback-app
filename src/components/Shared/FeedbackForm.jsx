@@ -2,7 +2,8 @@ import { useState } from "react";
 /*Component level state - Typically when you have a form youre going to have apiece of state for each input in the form. So for the text input this requires setting a piece of state. To set that piece of state 'useState' hook is needed. Important that it says from "react" */
 import Card from "./Card";
 import Button from "./Button";
-import RandomGreeting from "./RandomGreeting";
+
+import RatingSelect from "./RatingSelect";
 
 function FeedbackForm() {
   //The text constant can be called anythinging
@@ -12,6 +13,7 @@ function FeedbackForm() {
   const [text, setText] = useState("");
   const [btnDisabled, setbtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
+  const [rating, setRating] = useState(10);
 
   const handleTextChange = (rando) => {
     if (text === "") {
@@ -34,7 +36,14 @@ function FeedbackForm() {
     <Card>
       <form>
         <h2>How would you rate your service with us</h2>
-        {/* For later - rating select component */}
+        {/*Below - Passing in a prop of select which will be a function 
+             -The select prop 'rating' is being passed in which is caught in the ratingSelect function
+             -select is a function and that is being called by the ratingSelect function*/}
+        <RatingSelect
+          select={(rating) => {
+            console.log(rating);
+          }}
+        />
         <div className="input-group">
           <input
             onChange={handleTextChange}
