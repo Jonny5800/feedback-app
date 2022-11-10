@@ -45,6 +45,7 @@ function FeedbackItem({ item, handleDelete }) {
         <FaTimes color="purple" />
         {/*FaTimes is a component itself*/}
       </button>
+
       <div className="text-display">{item.text}</div>
     </Card>
   );

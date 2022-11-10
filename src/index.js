@@ -17,4 +17,15 @@ ReactDOM.render(
 //vid17 -  ITEMS get their id FeedbackList item={item} 4min20
 // vid17 - 5min:40 not sure how that 1 click is passed right through
 
-//Got to 1min.39 on vid 16
+//Got to start of vid19
+
+/*DOCUMENTATION READING
+- useState - vid19 3:19 
+- Hooks with useState - vid19 3:18
+- Input value to be used elswhere - vid19 4:45
+- What are node proptypes - vid20 3:29
+ ***destructuring***
+ - propTypes syntax
+ - defaultProps syntax
+ - ternarys when using the "and also" sign
+*/

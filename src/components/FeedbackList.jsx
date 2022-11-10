@@ -35,10 +35,9 @@ FeedbackList.propTypes = {
 };
 
 export default FeedbackList;
-{
-  /*map feedback
+
+/*map feedback
 return the rating of each item into a div
 need a key for item
 display the list from feedback item
  */
-}

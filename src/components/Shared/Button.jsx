@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { version } from "react-dom";
-function Button(children, version, type, isDisabled) {
+
+function Button({ children, version, type, isDisabled }) {
   // children - because the component is going to wrpped around whatever text for the button. So that would be the children
   // Version - that will be 'primary' or 'secondary' and that will relate to a partucular class
   return (
