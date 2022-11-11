@@ -30,18 +30,23 @@ function FeedbackForm() {
     //console.log(rando.target.value); This logs the value from the text input
     setText(rando.target.value); //The value from the text input is set to the text value
     //TEXT STATE - the const&function for handleTextChange above
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      //This prevents defaut behaviour - WHich is submitting to the actual file
+    };
   };
 
   return (
     <Card>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>How would you rate your service with us</h2>
         {/*Below - Passing in a prop of select which will be a function 
              -The select prop 'rating' is being passed in which is caught in the ratingSelect function
              -select is a function and that is being called by the ratingSelect function*/}
+
         <RatingSelect
           select={(rating) => {
-            console.log(rating);
+            setRating(rating);
           }}
         />
         <div className="input-group">

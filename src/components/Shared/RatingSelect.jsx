@@ -11,7 +11,8 @@ function RatingSelect({ select }) {
     //The log - by default, it will be a string (typeOf) will show this. BUT '+' before the e converts it to a number
     //
     // This calls the select function in the feedback form and used whatever the selected value is
-    select(selected);
+    //***   ASK MATT   ***select(selected); Why does this show the previously selected
+    select(+e.currentTarget.value);
   };
   return (
     <div>
@@ -21,7 +22,7 @@ function RatingSelect({ select }) {
             type="radio"
             id="num1"
             name="rating"
-            value="z"
+            value="1"
             onChange={handleChange}
             checked={selected === 1}
           />
