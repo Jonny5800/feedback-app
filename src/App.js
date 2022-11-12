@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import React from "react";
 import Header from "./components/Header";
@@ -10,7 +11,20 @@ import FeedbackForm from "./components/Shared/FeedbackForm";
 
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
-
+  const addFeedback = (newFeedback) => {
+    newFeedback.id = uuidv4();
+    //^^this generates and adds a new ID
+    console.log(newFeedback);
+    setFeedback([newFeedback, ...feedback]);
+    //Above - Adding this feedback input to the U.I list
+    //Whenever adding, deleting or updating, setFeedback is used
+    //The setState is immutable and so it must be copied.
+    //1- setFeedback([]) - set to an array
+    //2- ([...]) - Using spread operator
+    //3- ([...feedback]) - Taking the existing feedback and putting it in the array
+    //4- ([newFeedback,...feedback]) - putting the newFeedback at the start of the existing feedback array
+    // This works because 'feedback' comes from the global feedback state and is then updated
+  };
   const deleteFeedback = (id) => {
     if (window.confirm("Are you sure to delete?")) {
       setFeedback(feedback.filter((item) => item.id !== id));
@@ -28,7 +42,9 @@ function App() {
        */}
       <Header /*{/*StyleVariable="red"*/ />
       <div className="container">
-        <FeedbackForm />
+        <FeedbackForm handleAdd={addFeedback} />
+        {/*handle add is passed into feedback form as a prop, via the feedback form functions's parenthesis
+        Then, in feedback form, handleAdd is called like - handleAdd(newFeedback)  */}
         <FeedbackStats
           feedback={
             feedback

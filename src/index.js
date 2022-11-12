@@ -16,8 +16,7 @@ ReactDOM.render(
 //vid16 - 7min38 Why is children a node?
 //vid17 -  ITEMS get their id FeedbackList item={item} 4min20
 // vid17 - 5min:40 not sure how that 1 click is passed right through
-
-//Got to start of vid19
+//vid22 - revisit this for how the selection works and passing values throguh
 
 /*DOCUMENTATION READING
 - useState - vid19 3:19 
@@ -28,4 +27,7 @@ ReactDOM.render(
  - propTypes syntax
  - defaultProps syntax
  - ternarys when using the "and also" sign
+ - Generate a unique ID - uuid Vid23 4min
 */
+
+//GOT TO 22 5:30

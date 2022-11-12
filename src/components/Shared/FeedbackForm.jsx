@@ -5,7 +5,7 @@ import Button from "./Button";
 
 import RatingSelect from "./RatingSelect";
 
-function FeedbackForm() {
+function FeedbackForm({ handleAdd }) {
   //The text constant can be called anythinging
   //The method/function to update the pece of state is setText.
   //setText will be destructured by using useState below.
@@ -30,12 +30,24 @@ function FeedbackForm() {
     //console.log(rando.target.value); This logs the value from the text input
     setText(rando.target.value); //The value from the text input is set to the text value
     //TEXT STATE - the const&function for handleTextChange above
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      //This prevents defaut behaviour - WHich is submitting to the actual file
-    };
   };
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //^^This prevents defaut behaviour (e.prevent) - Which is submitting to the actual file - Used because it is a form-submit
+    //Below - This just double checks to make sure 10 charag=cters are entered
+    if (text.trim().length > 10) {
+      const newFeedback = {
+        text,
+        rating,
+        //constructing a new object - 'newFeedback'
+        /*This is a shorthand to make a key, value pair. 
+        i.e {text:text, rating:rating} */
+        //'text'(not shown) is the key and 'text' is input from the handleChange function, and that comes from the the U.I text field.Same with the rating
+      };
+      handleAdd(newFeedback);
+      //setText("");
+    }
+  };
   return (
     <Card>
       <form onSubmit={handleSubmit}>
