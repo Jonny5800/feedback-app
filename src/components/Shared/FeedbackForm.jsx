@@ -1,8 +1,9 @@
 import { useState } from "react";
-/*Component level state - Typically when you have a form youre going to have apiece of state for each input in the form. So for the text input this requires setting a piece of state. To set that piece of state 'useState' hook is needed. Important that it says from "react" */
+/*Component level state - Typically when you have a form youre going to have a piece of state for each input in the form. So for the text input this requires setting a piece of state. To set that piece of state 'useState' hook is needed. Important that it says from "react" 
+Piece of state - i.e the text written into an input or the value of a selected radio button*/
 import Card from "./Card";
 import Button from "./Button";
-
+import RandomGreeting from "./RandomGreeting";
 import RatingSelect from "./RatingSelect";
 
 function FeedbackForm({ handleAdd }) {
@@ -35,6 +36,7 @@ function FeedbackForm({ handleAdd }) {
     e.preventDefault();
     //^^This prevents defaut behaviour (e.prevent) - Which is submitting to the actual file - Used because it is a form-submit
     //Below - This just double checks to make sure 10 charag=cters are entered
+
     if (text.trim().length > 10) {
       const newFeedback = {
         text,
@@ -55,7 +57,7 @@ function FeedbackForm({ handleAdd }) {
         {/*Below - Passing in a prop of select which will be a function 
              -The select prop 'rating' is being passed in which is caught in the ratingSelect function
              -select is a function and that is being called by the ratingSelect function*/}
-
+        <RandomGreeting make="apple" model="mac book" />
         <RatingSelect
           select={(rating) => {
             setRating(rating);

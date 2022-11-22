@@ -17,6 +17,8 @@ ReactDOM.render(
 //vid17 -  ITEMS get their id FeedbackList item={item} 4min20
 // vid17 - 5min:40 not sure how that 1 click is passed right through
 //vid22 - revisit this for how the selection works and passing values throguh
+//vid23 1:40 - dont fully understand how the shorthand works
+//vid23 5min - not sure on the mechanics of how an ID is added
 
 /*DOCUMENTATION READING
 - useState - vid19 3:19 
