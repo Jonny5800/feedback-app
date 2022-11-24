@@ -17,7 +17,8 @@ function FeedbackList({ feedback, handleDelete }) {
             key={item.id}
             iniial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            /*CARDS WILL FADE OUT BUT NOT FADE IN*/
           >
             {/*"ITEM", in this case is whichever element is being iterated
             through at the time */}

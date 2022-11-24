@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 import Header from "./components/Header";
@@ -7,6 +8,7 @@ import FeedbackList from "./components/FeedbackList";
 import FeedbackData from "./data/FeedbackData";
 import FeedbackStats from "./components/Shared/FeedbackStats";
 import FeedbackForm from "./components/Shared/FeedbackForm";
+import AboutPage from "./Pages/AboutPage";
 //Below is JSX - allows writing HTML within components
 
 function App() {
@@ -37,26 +39,31 @@ function App() {
     /*this log checks that the log comes from the original onClick */
   };
   return (
-    <>
-      {/*BELOW - these are props (stylingTag tags) and need to be "caught in the header.jxs to be activated"
-       */}
-      <Header /*{/*StyleVariable="red"*/ />
-      <div className="container">
-        <FeedbackForm handleAdd={addFeedback} />
-        {/*handle add is passed into feedback form as a prop, via the feedback form functions's parenthesis
+    <Router>
+      <>
+        {/*BELOW - these are props (stylingTag tags) and need to be "caught in the header.jxs to be activated"
+         */}
+        <Header /*{/*StyleVariable="red"*/ />
+        <div className="container">
+          <Route exact path="/">
+            <FeedbackForm handleAdd={addFeedback} />
+            {/*handle add is passed into feedback form as a prop, via the feedback form functions's parenthesis
         Then, in feedback form, handleAdd is called like - handleAdd(newFeedback)  */}
-        <FeedbackStats
-          feedback={
-            feedback
-          } /*this feedback prop passes in the entire feedback array.
+            <FeedbackStats
+              feedback={
+                feedback
+              } /*this feedback prop passes in the entire feedback array.
         Because feedabxk is our state, whenever it changes this will automatically update the FeedbackStats component
         - same mechanics as FeedbackList below */
-        />
-        <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
-        {/*handleDelete is passed from feedbackList */}
-        {/*FeedbackItem - was replaced by FeedbackList*/}
-      </div>
-    </>
+            />
+            <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+          </Route>
+          {/*handleDelete is passed from feedbackList */}
+          {/*FeedbackItem - was replaced by FeedbackList*/}
+          <Route path="/about" component={AboutPage} />
+        </div>
+      </>
+    </Router>
   );
 }
 
