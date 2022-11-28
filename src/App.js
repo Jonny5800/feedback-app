@@ -45,28 +45,24 @@ function App() {
          */}
         <Header /*{/*StyleVariable="red"*/ />
         <div className="container">
-          <Route exact path="/">
-            <FeedbackForm handleAdd={addFeedback} />
-            {/*handle add is passed into feedback form as a prop, via the feedback form functions's parenthesis
+          <FeedbackForm handleAdd={addFeedback} />
+          {/*handle add is passed into feedback form as a prop, via the feedback form functions's parenthesis
         Then, in feedback form, handleAdd is called like - handleAdd(newFeedback)  */}
-            <FeedbackStats
-              feedback={
-                feedback
-              } /*this feedback prop passes in the entire feedback array.
+          <FeedbackStats
+            feedback={
+              feedback
+            } /*this feedback prop passes in the entire feedback array.
         Because feedabxk is our state, whenever it changes this will automatically update the FeedbackStats component
         - same mechanics as FeedbackList below */
-            />
-            <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
-          </Route>
-          {/*handleDelete is passed from feedbackList */}
-          {/*FeedbackItem - was replaced by FeedbackList*/}
+          />
+          <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
           <Route path="/about" component={AboutPage} />
         </div>
       </>
     </Router>
   );
 }
-
+//
 export default App;
 
 // State is just data - it can be local to a specific component or global and accesible to all comonents if neee be
