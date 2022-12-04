@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 import Header from "./components/Header";
@@ -45,18 +45,30 @@ function App() {
          */}
         <Header /*{/*StyleVariable="red"*/ />
         <div className="container">
-          <FeedbackForm handleAdd={addFeedback} />
-          {/*handle add is passed into feedback form as a prop, via the feedback form functions's parenthesis
-        Then, in feedback form, handleAdd is called like - handleAdd(newFeedback)  */}
-          <FeedbackStats
-            feedback={
-              feedback
-            } /*this feedback prop passes in the entire feedback array.
-        Because feedabxk is our state, whenever it changes this will automatically update the FeedbackStats component
+          <Routes>
+            <Route path="/" element={<FeedbackForm handleAdd={addFeedback} />}>
+              <Route path="/" element={<FeedbackStats feedback={feedback} />} />
+
+              {/*this feedback prop passes in the entire feedback array. */}
+              {
+                /* Because feedabxk is our state, whenever it changes this will automatically update the FeedbackStats component
         - same mechanics as FeedbackList below */
-          />
-          <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
-          <Route path="/about" component={AboutPage} />
+                ///> */
+              }
+              <Route
+                path="/"
+                element={
+                  <FeedbackList
+                    feedback={feedback}
+                    handleDelete={deleteFeedback}
+                  />
+                }
+              />
+              {/*<FeedbackList feedback={feedback} handleDelete={deleteFeedback} />*/}
+            </Route>
+
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
         </div>
       </>
     </Router>
