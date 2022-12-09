@@ -46,7 +46,11 @@ function App() {
         <Header /*{/*StyleVariable="red"*/ />
         <div className="container">
           <Routes>
-            <Route path="/" element={<FeedbackForm handleAdd={addFeedback} />}>
+            <Route
+              exact
+              path="/"
+              element={<FeedbackForm handleAdd={addFeedback} />}
+            >
               <Route path="/" element={<FeedbackStats feedback={feedback} />} />
 
               {/*this feedback prop passes in the entire feedback array. */}
@@ -79,38 +83,39 @@ export default App;
 
 // State is just data - it can be local to a specific component or global and accesible to all comonents if neee be
 
-// return (
-//   <Router>
-//     <>
-//       {/*BELOW - these are props (stylingTag tags) and need to be "caught in the header.jxs to be activated"
-//        */}
-//       <Header /*{/*StyleVariable="red"*/ />
-//       <div className="container">
-//         <Routes>
-//           <Route path="/" element={<FeedbackForm handleAdd={addFeedback} />}>
-//             <Route path="/" element={<FeedbackStats feedback={feedback} />} />
+// ABOUT PAGE WORKS, FEEDBACK FORM SHOWS BUT OTHER COMPONENTS DO NOT RENDER
 
-//             {/*this feedback prop passes in the entire feedback array. */}
-//             {
-//               /* Because feedabxk is our state, whenever it changes this will automatically update the FeedbackStats component
+// <Router>
+//       <>
+//         {/*BELOW - these are props (stylingTag tags) and need to be "caught in the header.jxs to be activated"
+//          */}
+//         <Header /*{/*StyleVariable="red"*/ />
+//         <div className="container">
+//           <Routes>
+//             <Route path="/" element={<FeedbackForm handleAdd={addFeedback} />}>
+//               <Route path="/" element={<FeedbackStats feedback={feedback} />} />
+
+//               {/*this feedback prop passes in the entire feedback array. */}
+//               {
+//                 /* Because feedabxk is our state, whenever it changes this will automatically update the FeedbackStats component
 //         - same mechanics as FeedbackList below */
-//               ///> */
-//             }
-//             <Route
-//               path="/"
-//               element={
-//                 <FeedbackList
-//                   feedback={feedback}
-//                   handleDelete={deleteFeedback}
-//                 />
+//                 ///> */
 //               }
-//             />
-//             {/*<FeedbackList feedback={feedback} handleDelete={deleteFeedback} />*/}
-//           </Route>
+//               <Route
+//                 exact
+//                 path="/"
+//                 element={
+//                   <FeedbackList
+//                     feedback={feedback}
+//                     handleDelete={deleteFeedback}
+//                   />
+//                 }
+//               />
+//               {/*<FeedbackList feedback={feedback} handleDelete={deleteFeedback} />*/}
+//             </Route>
 
-//           <Route path="/about" element={<AboutPage />} />
-//         </Routes>
-//       </div>
-//     </>
-//   </Router>
-// );
+//             <Route path="/about" element={<AboutPage />} />
+//           </Routes>
+//         </div>
+//       </>
+//     </Router>
