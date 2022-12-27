@@ -5,16 +5,32 @@ import Card from "./Card";
 import Button from "./Button";
 import RandomGreeting from "./RandomGreeting";
 import RatingSelect from "./RatingSelect";
+import FeedbackList from "../FeedbackList";
+import FeedbackData from "../../data/FeedbackData";
 
 function FeedbackForm({ handleAdd }) {
   //The text constant can be called anythinging
   //The method/function to update the pece of state is setText.
   //setText will be destructured by using useState below.
   //The default value for useState is in the parenthesis. Here its an empty string.
+
+  const [feedback, setFeedback] = useState(FeedbackData);
   const [text, setText] = useState("");
   const [btnDisabled, setbtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
   const [rating, setRating] = useState(10);
+
+  const deleteFeedback = (id) => {
+    if (window.confirm("Are you sure to delete?")) {
+      setFeedback(feedback.filter((item) => item.id !== id));
+    }
+
+    /*BELOW -want to set the feedback to the new array minus the idem beign deleted (its goins to set the feedback value in the CONST above) */
+
+    console.log("from app", id);
+
+    /*this log checks that the log comes from the original onClick */
+  };
 
   const handleTextChange = (rando) => {
     if (text === "") {
@@ -78,6 +94,7 @@ function FeedbackForm({ handleAdd }) {
         {/*if there is a message THEN create a div with the classname of message.
               Whatever is put into the message state will end up in {message} here */}
       </form>
+      <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
     </Card>
   );
 }

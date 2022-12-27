@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 import Header from "./components/Header";
-// - Replaced by FeedbackList - import FeedbackItem from "./components/FeedbackItem";
+
 import FeedbackList from "./components/FeedbackList";
 import FeedbackData from "./data/FeedbackData";
 import FeedbackStats from "./components/Shared/FeedbackStats";
 import FeedbackForm from "./components/Shared/FeedbackForm";
 import AboutPage from "./Pages/AboutPage";
-//Below is JSX - allows writing HTML within components
-
+import AboutIconLink from "./components/AboutIconLink";
+import Post from "./components/Post";
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
   const addFeedback = (newFeedback) => {
@@ -32,8 +32,6 @@ function App() {
       setFeedback(feedback.filter((item) => item.id !== id));
     }
 
-    /*BELOW -want to set the feedback to the new array minus the idem beign deleted (its goins to set the feedback value in the CONST above) */
-
     console.log("from app", id);
 
     /*this log checks that the log comes from the original onClick */
@@ -51,28 +49,28 @@ function App() {
               path="/"
               element={<FeedbackForm handleAdd={addFeedback} />}
             >
-              <Route path="/" element={<FeedbackStats feedback={feedback} />} />
-
-              {/*this feedback prop passes in the entire feedback array. */}
-              {
-                /* Because feedabxk is our state, whenever it changes this will automatically update the FeedbackStats component
-        - same mechanics as FeedbackList below */
-                ///> */
-              }
               <Route
-                path="/"
-                element={
-                  <FeedbackList
-                    feedback={feedback}
-                    handleDelete={deleteFeedback}
-                  />
-                }
+                path="/statss"
+                element={<FeedbackStats feedback={feedback} />}
               />
+
               {/*<FeedbackList feedback={feedback} handleDelete={deleteFeedback} />*/}
             </Route>
-
+            <Route
+              path="/testing"
+              element={
+                <FeedbackList
+                  feedback={feedback}
+                  handleDelete={deleteFeedback}
+                />
+              }
+            />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/post" element={<Post />} />{" "}
+            {/*The post is temp to see how it works*/}
           </Routes>
+
+          <AboutIconLink />
         </div>
       </>
     </Router>
