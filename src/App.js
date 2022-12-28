@@ -52,7 +52,7 @@ function App() {
                 path="/testing"
                 element={
                   <FeedbackList
-                    feedback={feedback}
+                    //.feedback={feedback}
                     handleDelete={deleteFeedback}
                   />
                 }

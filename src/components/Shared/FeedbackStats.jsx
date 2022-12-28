@@ -1,4 +1,8 @@
 import PropTypes from "prop-types";
+
+import { useContext } from "react";
+
+import FeedbackContext from "../Context/FeedbackContext";
 function FeedbackStats({ feedback }) {
   //calculating average review
   let averageRating =
