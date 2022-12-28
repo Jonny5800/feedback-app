@@ -10,6 +10,8 @@ function AboutPage() {
         <p>This is a react app for leaving feedback on something</p>
         <p>version 1.0.0</p>
         <Link to="/">Back to home page</Link>
+        <br />
+        <Link to="/post">To post page(practise)</Link>
       </div>
     </Card>
   );
