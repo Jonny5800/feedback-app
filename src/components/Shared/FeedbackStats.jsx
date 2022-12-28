@@ -1,9 +1,11 @@
-import PropTypes from "prop-types";
-
 import { useContext } from "react";
+//ERROR HAPPENS WHEN THE IMPORT BELOW IS NOT COMMENTED
+//import FeedbackContext from "src/Context/FeedbackContext";
+import FeedbackContext from "/home/jonny5800/repos/sandbox/react/feedback-application/src/Context/FeedbackContext.js";
+//--The full path---home/jonny5800/repos/sandbox/react/feedback-application/src/Context/FeedbackContext.js"
+function FeedbackStats() {
+  const { feedback } = useContext(FeedbackContext);
 
-import FeedbackContext from "../Context/FeedbackContext";
-function FeedbackStats({ feedback }) {
   //calculating average review
   let averageRating =
     feedback.reduce((accumulator, currentValue) => {
@@ -21,7 +23,4 @@ function FeedbackStats({ feedback }) {
   );
 }
 
-FeedbackStats.propTypes = {
-  feedback: PropTypes.array.isRequired,
-};
 export default FeedbackStats;
