@@ -19,6 +19,7 @@ function FeedbackForm({ handleAdd }) {
   const [text, setText] = useState("");
   const [btnDisabled, setbtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
+
   const [rating, setRating] = useState(10);
 
   const deleteFeedback = (id) => {
@@ -33,21 +34,24 @@ function FeedbackForm({ handleAdd }) {
     /*this log checks that the log comes from the original onClick */
   };
 
-  const handleTextChange = (rando) => {
-    if (text === "") {
+  const handleTextChange = (event) => {
+    const inputLengthCheck = event.target.value;
+    if (event.target.value === "") {
       setbtnDisabled(true);
       setMessage(null);
-    } else if (text.trim().length <= 10) {
+    } //else if (text.trim().length <= 10)
+    else if (inputLengthCheck.length < 10) {
       setbtnDisabled(true);
-      setMessage("Please enter more than 10 characters");
+      setMessage("Please enter 10 or more characters");
     } else {
       setbtnDisabled(false);
-      setMessage(null);
+      setMessage("Press send when feedback complete");
     }
 
-    //console.log(rando.target.value); This logs the value from the text input
-    setText(rando.target.value); //The value from the text input is set to the text value
+    //console.log(event.target.value); This logs the value from the text input
+    setText(event.target.value); //The value from the text input is set to the text value
     //TEXT STATE - the const&function for handleTextChange above
+    console.log(event.target.value + "  thiss");
   };
   const handleSubmit = (e) => {
     e.preventDefault();
