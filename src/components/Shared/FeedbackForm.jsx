@@ -7,6 +7,7 @@ import RandomGreeting from "./RandomGreeting";
 import RatingSelect from "./RatingSelect";
 import FeedbackList from "../FeedbackList";
 import FeedbackData from "../../data/FeedbackData";
+import FeedbackStats from "./FeedbackStats";
 
 function FeedbackForm({ handleAdd }) {
   //The text constant can be called anythinging
@@ -94,6 +95,8 @@ function FeedbackForm({ handleAdd }) {
         {/*if there is a message THEN create a div with the classname of message.
               Whatever is put into the message state will end up in {message} here */}
       </form>
+      <FeedbackStats />
+
       <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
     </Card>
   );
