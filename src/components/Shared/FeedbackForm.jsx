@@ -48,25 +48,16 @@ function FeedbackForm() {
       const newFeedback = {
         text,
         rating,
-        //constructing a new object - 'newFeedback'
-        /*This is a shorthand to make a key, value pair. 
-        i.e {text:text, rating:rating} */
-        //'text'(not shown) is the key and 'text' is input from the handleChange function, and that comes from the the U.I text field.Same with the rating
       };
-      {
-        /*handleAdd replaced by addFedback*/
-      }
+
       addFeedback(newFeedback);
-      //setText("");
     }
   };
   return (
     <Card>
       <form onSubmit={handleSubmit}>
         <h2>How would you rate your service with us</h2>
-        {/*Below - Passing in a prop of select which will be a function 
-             -The select prop 'rating' is being passed in which is caught in the ratingSelect function
-             -select is a function and that is being called by the ratingSelect function*/}
+
         <RandomGreeting make="apple" model="mac book" />
         <RatingSelect
           select={(rating) => {
@@ -85,8 +76,6 @@ function FeedbackForm() {
           </Button>
         </div>
         {message && <div className="message">{message}</div>}
-        {/*if there is a message THEN create a div with the classname of message.
-              Whatever is put into the message state will end up in {message} here */}
       </form>
       <FeedbackStats />
 
@@ -114,3 +103,8 @@ for the 'input-group' class name - type a fullstop and then the classname that y
 
 for the input - type 'input' with a colon and then 'text' and it will automatically create the input for you 
 */
+
+//constructing a new object - 'newFeedback'
+/*This is a shorthand to make a key, value pair. 
+        i.e {text:text, rating:rating} */
+//'text'(not shown) is the key and 'text' is input from the handleChange function, and that comes from the the U.I text field.Same with the rating

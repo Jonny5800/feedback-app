@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
 import Header from "./components/Header";
 import FeedbackList from "./components/FeedbackList";
-
 import FeedbackStats from "./components/Shared/FeedbackStats";
 import FeedbackForm from "./components/Shared/FeedbackForm";
 import AboutPage from "./Pages/AboutPage";
@@ -13,64 +12,20 @@ import AboutIconLink from "./components/AboutIconLink";
 import Post from "./components/Post";
 
 function App() {
-  //const [feedback, setFeedback] = useState(FeedbackData); no longer needed
-  {
-    /*
-const addFeedback = (newFeedback) => {
-    newFeedback.id = uuidv4();
-    //^^this generates and adds a new ID
-    console.log(newFeedback);
-    setFeedback([newFeedback, ...feedback]);
-  };
- */
-  }
-
-  // const deleteFeedback = (id) => {
-  //   if (window.confirm("Are you sure to delete?")) {
-  //     setFeedback(feedback.filter((item) => item.id !== id));
-  //   }
-  //   console.log("from app", id);
-  //   /*this log checks that the log comes from the original onClick */
-  // };
-
   return (
     <FeedbackProvider>
       <Router>
         <>
-          {/*BELOW - these are props (stylingTag tags) and need to be "caught in the header.jxs to be activated"
-           */}
           <Header /*{/*StyleVariable="red"*/ />
           <div className="container">
             <Routes>
-              <Route
-                exact
-                path="/"
-                element={
-                  <FeedbackForm
-                  //handleAdd={addFeedback}
-                  />
-                }
-              >
-                <Route
-                  path="/statss"
-                  element={
-                    <FeedbackStats
-                    //feedback={feedback}
-                    />
-                  }
-                />
+              <Route exact path="/" element={<FeedbackForm />}>
+                <Route path="/statss" element={<FeedbackStats />} />
               </Route>
-              <Route
-                path="/testing"
-                element={
-                  <FeedbackList
-                  //.feedback={feedback}
-                  //handleDelete={deleteFeedback}
-                  />
-                }
-              />
+              <Route path="/testing" element={<FeedbackList />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/post/*" element={<Post />} />{" "}
+              <Route path="/post/*" element={<Post />} />
+              {""}
             </Routes>
 
             <AboutIconLink />
