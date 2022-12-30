@@ -1,6 +1,5 @@
 import { useState } from "react";
-/*Component level state - Typically when you have a form youre going to have a piece of state for each input in the form. So for the text input this requires setting a piece of state. To set that piece of state 'useState' hook is needed. Important that it says from "react" 
-Piece of state - i.e the text written into an input or the value of a selected radio button*/
+import { useContext } from "react";
 import Card from "./Card";
 import Button from "./Button";
 import RandomGreeting from "./RandomGreeting";
@@ -8,30 +7,20 @@ import RatingSelect from "./RatingSelect";
 import FeedbackList from "../FeedbackList";
 import FeedbackData from "../../data/FeedbackData";
 import FeedbackStats from "./FeedbackStats";
+import FeedbackContext from "../../Context/FeedbackContext";
 
-function FeedbackForm({ handleAdd }) {
-  //The text constant can be called anythinging
-  //The method/function to update the pece of state is setText.
-  //setText will be destructured by using useState below.
-  //The default value for useState is in the parenthesis. Here its an empty string.
-
+function FeedbackForm() {
   const [feedback, setFeedback] = useState(FeedbackData);
   const [text, setText] = useState("");
   const [btnDisabled, setbtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
-
   const [rating, setRating] = useState(10);
+  const { addFeedback } = useContext(FeedbackContext);
 
   const deleteFeedback = (id) => {
     if (window.confirm("Are you sure to delete?")) {
       setFeedback(feedback.filter((item) => item.id !== id));
     }
-
-    /*BELOW -want to set the feedback to the new array minus the idem beign deleted (its goins to set the feedback value in the CONST above) */
-
-    console.log("from app", id);
-
-    /*this log checks that the log comes from the original onClick */
   };
 
   const handleTextChange = (event) => {
@@ -48,15 +37,12 @@ function FeedbackForm({ handleAdd }) {
       setMessage("Press send when feedback complete");
     }
 
-    //console.log(event.target.value); This logs the value from the text input
-    setText(event.target.value); //The value from the text input is set to the text value
-    //TEXT STATE - the const&function for handleTextChange above
+    setText(event.target.value); //The value from the text
     console.log(event.target.value + "  thiss");
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     //^^This prevents defaut behaviour (e.prevent) - Which is submitting to the actual file - Used because it is a form-submit
-    //Below - This just double checks to make sure 10 charag=cters are entered
 
     if (text.trim().length > 10) {
       const newFeedback = {
@@ -67,7 +53,10 @@ function FeedbackForm({ handleAdd }) {
         i.e {text:text, rating:rating} */
         //'text'(not shown) is the key and 'text' is input from the handleChange function, and that comes from the the U.I text field.Same with the rating
       };
-      handleAdd(newFeedback);
+      {
+        /*handleAdd replaced by addFedback*/
+      }
+      addFeedback(newFeedback);
       //setText("");
     }
   };
@@ -107,6 +96,18 @@ function FeedbackForm({ handleAdd }) {
 }
 
 export default FeedbackForm;
+
+/*Component level state - Typically when you have a form youre going to have a piece of state for each input in the form. So for the text input this requires setting a piece of state. To set that piece of state 'useState' hook is needed. Important that it says from "react" 
+Piece of state - i.e the text written into an input or the value of a selected radio button*/
+
+{
+  /*
+ Explanation of feedbackForm
+ The text constant can be called anythinging
+  The method/function to update the pece of state is setText.
+  setText will be destructured by using useState below.
+The default value for useState is in the parenthesis. Here its an empty string.*/
+}
 
 /*
 for the 'input-group' class name - type a fullstop and then the classname that you want the div to have

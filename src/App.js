@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState } from "react";
+
 import React from "react";
 import Header from "./components/Header";
 import FeedbackList from "./components/FeedbackList";
-import FeedbackData from "./data/FeedbackData";
+
 import FeedbackStats from "./components/Shared/FeedbackStats";
 import FeedbackForm from "./components/Shared/FeedbackForm";
 import AboutPage from "./Pages/AboutPage";
@@ -13,21 +13,25 @@ import AboutIconLink from "./components/AboutIconLink";
 import Post from "./components/Post";
 
 function App() {
-  const [feedback, setFeedback] = useState(FeedbackData);
-  const addFeedback = (newFeedback) => {
+  //const [feedback, setFeedback] = useState(FeedbackData); no longer needed
+  {
+    /*
+const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4();
     //^^this generates and adds a new ID
     console.log(newFeedback);
     setFeedback([newFeedback, ...feedback]);
   };
+ */
+  }
 
-  const deleteFeedback = (id) => {
-    if (window.confirm("Are you sure to delete?")) {
-      setFeedback(feedback.filter((item) => item.id !== id));
-    }
-    console.log("from app", id);
-    /*this log checks that the log comes from the original onClick */
-  };
+  // const deleteFeedback = (id) => {
+  //   if (window.confirm("Are you sure to delete?")) {
+  //     setFeedback(feedback.filter((item) => item.id !== id));
+  //   }
+  //   console.log("from app", id);
+  //   /*this log checks that the log comes from the original onClick */
+  // };
 
   return (
     <FeedbackProvider>
@@ -41,19 +45,27 @@ function App() {
               <Route
                 exact
                 path="/"
-                element={<FeedbackForm handleAdd={addFeedback} />}
+                element={
+                  <FeedbackForm
+                  //handleAdd={addFeedback}
+                  />
+                }
               >
                 <Route
                   path="/statss"
-                  element={<FeedbackStats feedback={feedback} />}
+                  element={
+                    <FeedbackStats
+                    //feedback={feedback}
+                    />
+                  }
                 />
               </Route>
               <Route
                 path="/testing"
                 element={
                   <FeedbackList
-                    //.feedback={feedback}
-                    handleDelete={deleteFeedback}
+                  //.feedback={feedback}
+                  //handleDelete={deleteFeedback}
                   />
                 }
               />
