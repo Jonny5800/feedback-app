@@ -1,7 +1,6 @@
 import { createContext, useState } from "react";
-import FeedbackStats from "../components/Shared/FeedbackStats";
 import { v4 as uuidv4 } from "uuid";
-import { useContext } from "react";
+//import { useContext } from "react";
 
 const FeedbackContext = createContext();
 
@@ -21,14 +20,13 @@ export const FeedbackProvider = ({ children }) => {
     /*this log checks that the log comes from the original onClick */
   };
 
-  {
-    const addFeedback = (newFeedback) => {
-      newFeedback.id = uuidv4();
-      //^^this generates and adds a new ID
-      console.log(newFeedback);
-      setFeedback([newFeedback, ...feedback]);
-    };
-  }
+  const addFeedback = (newFeedback) => {
+    newFeedback.id = uuidv4();
+    //^^this generates and adds a new ID
+    console.log(newFeedback);
+    setFeedback([newFeedback, ...feedback]);
+  };
+
   return (
     <FeedbackContext.Provider value={{ feedback, deleteFeedback, addFeedback }}>
       {children}
