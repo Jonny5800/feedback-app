@@ -1,17 +1,23 @@
 import { useState } from "react";
+import { useContext } from "react";
+import FeedbackForm from "./FeedbackForm";
+import FeedbackContext from "../../Context/FeedbackContext";
+import { useEffect } from "react";
 
 function RatingSelect({ select }) {
   const [selected, setSelected] = useState(10);
   //^^This is a piece of state that represents which nuber is selected - requires {useState} to be imported
+  //followed below
+  const { feedbackEdit } = useContext(FeedbackContext);
+  useEffect(() => {
+    setSelected(feedbackEdit.item.rating);
+  }, [feedbackEdit]);
+  const { RatingSelect } = useContext(FeedbackForm);
 
+  useEffect(() => {});
   const handleChange = (e) => {
     setSelected(+e.currentTarget.value);
-    //console.log(typeof +e.currentTarget.value);
-    //^This logs the input 'value' of whichever radio button is clicked
-    //The log - by default, it will be a string (typeOf) will show this. BUT '+' before the e converts it to a number
-    //
-    // This calls the select function in the feedback form and used whatever the selected value is
-    //***   ASK MATT   ***select(selected); Why does this show the previously selected
+
     select(+e.currentTarget.value);
   };
   return (
@@ -142,3 +148,14 @@ function RatingSelect({ select }) {
 }
 
 export default RatingSelect;
+
+{
+  /*Explanation of handleChange function
+ console.log(typeof +e.currentTarget.value);
+    ^This logs the input 'value' of whichever radio button is clicked
+    The log - by default, it will be a string (typeOf) will show this. BUT '+' before the e converts it to a number
+    
+    This calls the select function in the feedback form and used whatever the selected value is
+    ***   ASK MATT   ***select(selected); Why does this show the previously selected
+*/
+}

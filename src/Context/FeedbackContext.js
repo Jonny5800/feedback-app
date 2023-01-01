@@ -54,7 +54,7 @@ edit: false - default to this but true when clicked i.e edit mode
     setFeedback([newFeedback, ...feedback]);
   };
 
-  //Sets item to be updated
+  //Sets item to be updated - EDIT
   const editFeedback = (item) => {
     setFeedbackEdit({
       item,
@@ -72,7 +72,13 @@ Edit - set to true
 
   return (
     <FeedbackContext.Provider
-      value={{ feedback, deleteFeedback, addFeedback, editFeedback }}
+      value={{
+        feedback,
+        deleteFeedback,
+        addFeedback,
+        editFeedback,
+        feedbackEdit,
+      }}
     >
       {children}
     </FeedbackContext.Provider>

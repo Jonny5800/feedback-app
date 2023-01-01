@@ -1,5 +1,15 @@
 import { useState } from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+// useEffect - Whenever feedbackEdit changes(when clicked on), we want "somethinbg to happen" i.e.the form to get the current text and rating from the current feedback.
+// That is called a side effect.FeedbackData
+// The way to deal with side effects with functional components and hooks is to use "useEffect".
+// useEffect is called as a function i.euseEffect()
+// It takes in
+// 1 - a callback
+// 2 - An array of dependencies
+// If you put something in that array and it changes then the callback function will run.
+// If the array is left wempty then the callback will just run when the componentloads.
+// A good use for a useEffect is to fetch data from an API each time a page loads on a blog post because it will run just the once
 import Card from "./Card";
 import Button from "./Button";
 import RandomGreeting from "./RandomGreeting";
@@ -15,13 +25,21 @@ function FeedbackForm() {
   const [btnDisabled, setbtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
   const [rating, setRating] = useState(10);
-  const { addFeedback } = useContext(FeedbackContext);
+  const { addFeedback, feedbackEdit } = useContext(FeedbackContext);
 
-  const deleteFeedback = (id) => {
-    if (window.confirm("Are you sure to delete?")) {
-      setFeedback(feedback.filter((item) => item.id !== id));
+  useEffect(() => {
+    if (feedbackEdit.edit === true) {
+      //button, text and rating
+      setbtnDisabled(false);
+      setText(feedbackEdit.item.text);
+      setRating(feedbackEdit.item.rating);
     }
-  };
+  }, [feedbackEdit]);
+  // const deleteFeedback = (id) => {
+  //   if (window.confirm("Are you sure to delete?")) {
+  //     setFeedback(feedback.filter((item) => item.id !== id));
+  //   }
+  // };
 
   const handleTextChange = (event) => {
     const inputLengthCheck = event.target.value;
@@ -79,7 +97,10 @@ function FeedbackForm() {
       </form>
       <FeedbackStats />
 
-      <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+      <FeedbackList
+        feedback={feedback}
+        //handleDelete={deleteFeedback}
+      />
     </Card>
   );
 }
