@@ -53,6 +53,15 @@ edit: false - default to this but true when clicked i.e edit mode
     console.log(newFeedback);
     setFeedback([newFeedback, ...feedback]);
   };
+  //Update feedbackItem:
+  //ID so we know which one is being updated>
+  //updItem - this is the new data
+
+  const updateFeedback = (id, updItem) => {
+    setFeedback(
+      feedback.map((item) => (item.id === id ? { ...item, ...updItem } : item))
+    );
+  };
 
   //Sets item to be updated - EDIT
   const editFeedback = (item) => {
@@ -78,6 +87,7 @@ Edit - set to true
         addFeedback,
         editFeedback,
         feedbackEdit,
+        updateFeedback,
       }}
     >
       {children}
