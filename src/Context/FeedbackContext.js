@@ -63,7 +63,7 @@ edit: false - default to this but true when clicked i.e edit mode
     );
   };
 
-  //Sets item to be updated - EDIT
+  //Sets item to be updated - EDITs
   const editFeedback = (item) => {
     setFeedbackEdit({
       item,
