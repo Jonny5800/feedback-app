@@ -25,7 +25,8 @@ function FeedbackForm() {
   const [btnDisabled, setbtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
   const [rating, setRating] = useState(10);
-  const { addFeedback, feedbackEdit } = useContext(FeedbackContext);
+  const { addFeedback, feedbackEdit, updateFeedback } =
+    useContext(FeedbackContext);
 
   useEffect(() => {
     if (feedbackEdit.edit === true) {
@@ -59,8 +60,7 @@ function FeedbackForm() {
     console.log(event.target.value + "  thiss");
   };
   const handleSubmit = (e) => {
-    e.preventDefault();
-    //^^This prevents defaut behaviour (e.prevent) - Which is submitting to the actual file - Used because it is a form-submit
+    e.preventDefault(); //<<<This prevents defaut behaviour (e.prevent) - Which is submitting to the actual file - Used because it is a form-submit
 
     if (text.trim().length > 10) {
       const newFeedback = {
@@ -68,7 +68,12 @@ function FeedbackForm() {
         rating,
       };
 
-      addFeedback(newFeedback);
+      if (feedbackEdit.edit === true) {
+        updateFeedback(feedbackEdit.item.id, newFeedback);
+      } else {
+        addFeedback(newFeedback);
+      }
+      setText("");
     }
   };
   return (
