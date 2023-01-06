@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  // isLoadind is set to true by default until the request is menubar. THEN is is set to false
   const [feedback, setFeedback] = useState([
     //  MAkes the array empty and no hard coded fedback
     // {
@@ -23,24 +25,23 @@ export const FeedbackProvider = ({ children }) => {
     //   rating: 4,
     // },
   ]);
-
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
     edit: false, //this is a boolean (on/off switch)
   });
   useEffect(() => {
+    console.log(123);
     fetchFeedback();
-    // console.log(123);
   }, []);
 
   //fetch eedack
   const fetchFeedback = async () => {
-    const response = await fetch(
-      "http://localhost:5000/feedback?_sort=id&order=desc"
-    );
+    const response = await fetch("http://localhost:5000/feedback");
     const data = await response.json();
-    console.log(data);
+    setFeedback(data);
+    setIsLoading(false);
   };
+
   //   {
   //     /*
   // Explanation of above:
@@ -101,6 +102,7 @@ export const FeedbackProvider = ({ children }) => {
         editFeedback,
         feedbackEdit,
         updateFeedback,
+        isLoading,
       }}
     >
       {children}
