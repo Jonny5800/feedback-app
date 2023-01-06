@@ -1,19 +1,24 @@
 {
-  "posts": [
+  "feedback": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id": 2,
+      "rating": 2,
+      "text": "Backend Feedback 2"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 3,
+      "rating": 4,
+      "text": "Backend Feedback 3"
+    },
+    {
+      "rating": "6",
+      "text": "Second addition on postman",
+      "id": 4
+    },
+    {
+      "rating": "5",
+      "text": "third try adding",
+      "id": 5
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

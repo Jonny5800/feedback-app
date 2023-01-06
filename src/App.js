@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+//import { v4 as uuidv4 } from "uuid";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import React from "react";
@@ -38,17 +38,17 @@ function App() {
 //
 export default App;
 
-{
-  /*
-  Step by step - Adding newFeedback to feedback vie setFeedback using the spread operator
-  Above - Adding this feedback input to the U.I list
-    Whenever adding, deleting or updating, setFeedback is used
-    The setState is immutable and so it must be copied.
-    1- setFeedback([]) - set to an array
-    2- ([...]) - Using spread operator
-    3- ([...feedback]) - Taking the existing feedback and putting it in the array
-    4- ([newFeedback,...feedback]) - putting the newFeedback at the start of the existing feedback array
-    This works because 'feedback' comes from the global feedback state and is then updated
+// {
+//   /*
+//   Step by step - Adding newFeedback to feedback vie setFeedback using the spread operator
+//   Above - Adding this feedback input to the U.I list
+//     Whenever adding, deleting or updating, setFeedback is used
+//     The setState is immutable and so it must be copied.
+//     1- setFeedback([]) - set to an array
+//     2- ([...]) - Using spread operator
+//     3- ([...feedback]) - Taking the existing feedback and putting it in the array
+//     4- ([newFeedback,...feedback]) - putting the newFeedback at the start of the existing feedback array
+//     This works because 'feedback' comes from the global feedback state and is then updated
 
-  */
-}
+//   */
+// }

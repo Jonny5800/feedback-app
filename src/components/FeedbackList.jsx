@@ -3,11 +3,7 @@ import { useContext } from "react";
 import FeedbackItem from "./FeedbackItem";
 import FeedbackContext from "../Context/FeedbackContext";
 
-function FeedbackList(
-  {
-    /*handleDelete */
-  }
-) {
+function FeedbackList() {
   const { feedback } = useContext(FeedbackContext);
 
   if (!feedback || feedback.length === 0) {
@@ -43,10 +39,10 @@ function FeedbackList(
 
 export default FeedbackList;
 
-{
-  /*
-Explanation of handle delete in FeedbackItem
-/***handleDelete={(id) => console.log(id)}.....This handleDelete LOG is replaced by the above line in order to forward the handleDelete towards App.js - it originates from FeedbackItem <button> onclick***/
-  /*^^HandleDelete is a prop for feedback item SO this means that handleDelete needs to be in the FeedbackItem function parenthesis
-   */
-}
+// {
+//   /*
+// Explanation of handle delete in FeedbackItem
+// /***handleDelete={(id) => console.log(id)}.....This handleDelete LOG is replaced by the above line in order to forward the handleDelete towards App.js - it originates from FeedbackItem <button> onclick***/
+//   /*^^HandleDelete is a prop for feedback item SO this means that handleDelete needs to be in the FeedbackItem function parenthesis
+//    */
+// }

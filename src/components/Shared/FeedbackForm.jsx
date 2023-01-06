@@ -20,7 +20,7 @@ import FeedbackStats from "./FeedbackStats";
 import FeedbackContext from "../../Context/FeedbackContext";
 
 function FeedbackForm() {
-  const [feedback, setFeedback] = useState(FeedbackData);
+  const [feedback] = useState(FeedbackData);
   const [text, setText] = useState("");
   const [btnDisabled, setbtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
@@ -113,16 +113,15 @@ function FeedbackForm() {
 export default FeedbackForm;
 
 /*Component level state - Typically when you have a form youre going to have a piece of state for each input in the form. So for the text input this requires setting a piece of state. To set that piece of state 'useState' hook is needed. Important that it says from "react" 
-Piece of state - i.e the text written into an input or the value of a selected radio button*/
+Piece of state - i.e the text written into an input or the value of a selected radio button
+*/
 
-{
-  /*
+/*
  Explanation of feedbackForm
  The text constant can be called anythinging
   The method/function to update the pece of state is setText.
   setText will be destructured by using useState below.
 The default value for useState is in the parenthesis. Here its an empty string.*/
-}
 
 /*
 for the 'input-group' class name - type a fullstop and then the classname that you want the div to have
