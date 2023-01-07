@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
+
 //import { useContext } from "react";
 
 const FeedbackContext = createContext();
@@ -34,13 +34,16 @@ export const FeedbackProvider = ({ children }) => {
     fetchFeedback();
   }, []);
 
-  //fetch eedack
+  //fetch feedack
   const fetchFeedback = async () => {
-    const response = await fetch("http://localhost:5000/feedback");
+    const response = await fetch("/feedback");
     const data = await response.json();
     setFeedback(data);
     setIsLoading(false);
   };
+  /*fetch("http://localhost:5000/feedback") 
+  Added a proxy in package.json 
+  So that the whole address doesnt need to be typed./*}
 
   //   {
   //     /*
@@ -61,11 +64,24 @@ export const FeedbackProvider = ({ children }) => {
     /*this log checks that the log comes from the original onClick */
   };
 
-  const addFeedback = (newFeedback) => {
-    newFeedback.id = uuidv4();
+  const addFeedback = async (newFeedback) => {
+    const response = await fetch("/feedback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newFeedback),
+    });
+    const data = await response.json();
+
+    //newFeedback.id = uuidv4(); (json server automatically creates an ID)
     //^^this generates and adds a new ID
     console.log(newFeedback);
-    setFeedback([newFeedback, ...feedback]);
+    setFeedback([data, ...feedback]);
+    //When setting the feedback, its being set to a array and spreading across the feedback thats already there.
+    //Now, instead of adding newFeedback from before, it will add the data thats sent from the backend...'data'
+    //setFeedback([newFeedback, ...feedback]) >>
+    //setFeedback([data, ...feedback])
   };
   //Update feedbackItem:
   //ID so we know which one is being updated>

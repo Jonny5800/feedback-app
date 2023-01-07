@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useContext } from "react";
 import FeedbackItem from "./FeedbackItem";
 import FeedbackContext from "../Context/FeedbackContext";
+import Loading from "./Shared/Loading";
 
 function FeedbackList() {
   const { feedback, isLoading } = useContext(FeedbackContext);
@@ -11,7 +12,7 @@ function FeedbackList() {
   }
   console.log(feedback);
   return isLoading ? (
-    <h3>Loading...</h3>
+    <Loading />
   ) : (
     <div className="feedback-list">
       {/*Below - This is where "list was"*/}
