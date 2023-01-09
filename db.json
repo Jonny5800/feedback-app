@@ -1,44 +1,34 @@
 {
   "feedback": [
     {
-      "id": 2,
-      "rating": 2,
-      "text": "Backend Feedback 2"
+      "text": "athraqhrtnhar",
+      "rating": 9,
+      "id": 1
     },
     {
-      "id": 3,
-      "rating": 4,
-      "text": "Backend Feedback 3"
+      "text": "qthhrwytgwthgw",
+      "rating": 3,
+      "id": 2
     },
     {
-      "rating": "6",
-      "text": "Second addition on postman",
+      "text": "qegeqhrhrths",
+      "rating": 3,
+      "id": 3
+    },
+    {
+      "text": "eqheqhqehgqhrwthg",
+      "rating": 3,
       "id": 4
     },
     {
-      "rating": "5",
-      "text": "third try adding",
+      "text": "nboihbiboiub",
+      "rating": 9,
       "id": 5
     },
     {
-      "text": "gagagsagbsaggag",
-      "rating": 10,
+      "text": "'l;km[okm'oklm'km",
+      "rating": 1,
       "id": 6
-    },
-    {
-      "text": "Testing the adding",
-      "rating": 5,
-      "id": 7
-    },
-    {
-      "text": "testing the adding",
-      "rating": 4,
-      "id": 8
-    },
-    {
-      "text": "The newest item was 4 now 5",
-      "rating": 5,
-      "id": 9
     }
   ]
 }
