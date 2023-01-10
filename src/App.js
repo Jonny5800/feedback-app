@@ -10,6 +10,8 @@ import AboutPage from "./Pages/AboutPage";
 import { FeedbackProvider } from "./Context/FeedbackContext"; //not a default export in FeedbackContext.js so curly braces are needed
 import AboutIconLink from "./components/AboutIconLink";
 import Post from "./components/Post";
+import NotFound from "./Pages/NotFound";
+import Practise from "./Pages/ForPractising";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
               <Route path="/testing" element={<FeedbackList />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/post/*" element={<Post />} />
+              <Route path="/practise" element={<Practise />} />
+              <Route path="*" element={<NotFound />} />
               {""}
             </Routes>
 
