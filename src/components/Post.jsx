@@ -1,5 +1,3 @@
-//import {} from "react-router-dom";
-//import { useParams } from "react-router-dom";
 import { Navigate, useNavigate, Routes, Route } from "react-router-dom";
 
 function Post() {

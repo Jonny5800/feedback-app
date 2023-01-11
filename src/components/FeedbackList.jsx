@@ -15,7 +15,6 @@ function FeedbackList() {
     <Loading />
   ) : (
     <div className="feedback-list">
-      {/*Below - This is where "list was"*/}
       <AnimatePresence>
         {feedback.map((item) => (
           <motion.div
@@ -27,11 +26,7 @@ function FeedbackList() {
           >
             {/*"ITEM", in this case is whichever element is being iterated
             through at the time */}
-            <FeedbackItem
-              key={item.id}
-              item={item}
-              //handleDelete={handleDelete} no longer needed
-            />
+            <FeedbackItem key={item.id} item={item} />
           </motion.div>
         ))}
       </AnimatePresence>

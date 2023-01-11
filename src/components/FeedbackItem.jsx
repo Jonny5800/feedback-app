@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 function FeedbackItem({ item }) {
   const { deleteFeedback, editFeedback } = useContext(FeedbackContext);
-  //inside the {} is what is pulled out of FeedbackContext via context
+
   return (
     <Card reverse={true}>
       <div className="num-display">{item.rating}</div>

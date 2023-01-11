@@ -1,30 +1,32 @@
 function Practise() {
-  // const items = [
-  //   { name: "rice", price: 5 },
-  //   { name: "Book", price: 5 },
-  //   { name: "Chicken", price: 5 },
-  //   { name: "Monitor", price: 5 },
-  // ];
+  //
+
+  const items = [
+    { name: "Rice", Price: 5 },
+    { name: "Book", Price: 20 },
+    { name: "Chicken", Price: 10 },
+    { name: "Monitor", Price: 100 },
+  ];
+
+  const sum = items.reduce((acc, curr) => {
+    return (acc += curr.Price);
+  }, 0);
+  console.log(sum);
 
   // let totalPrice = 0;
+  // items.forEach(addPrices);
+
   // items.forEach((item) => {
-  //   totalPrice += item.price;
+  //   totalPrice += item.Price;
   // });
-  // console.log(totalPrice + " total price");
 
-  const numbers = [1, 2, 3, 4, 5];
+  // function addPrices(item, arr, index) {
+  //   totalPrice += item.Price;
+  // }
 
-  numbers.forEach(countEm); //countEm
+  // console.log(totalPrice);
 
-  function countEm(addUp) {
-    //countEm
-    console.log(addUp);
-  }
-
-  //   numbers.forEach (function(numbers)){
-  //     console.log(numbers+ " really?")
-  //  }
-
+  //
   return (
     <div>
       {/*Return this 
