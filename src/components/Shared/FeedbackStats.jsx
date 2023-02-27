@@ -1,12 +1,12 @@
 import { useContext } from "react";
-//ERROR HAPPENS WHEN THE IMPORT BELOW IS NOT COMMENTED
+
 import FeedbackContext from "../../Context/FeedbackContext";
-//import FeedbackContext from "/home/jonny5800/repos/sandbox/react/feedback-application/src/Context/FeedbackContext.js";
-//--The full path---home/jonny5800/repos/sandbox/react/feedback-application/src/Context/FeedbackContext.js"
+
+
 function FeedbackStats() {
   const { feedback } = useContext(FeedbackContext);
 
-  //calculating average review
+
   let averageRating =
     feedback.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.rating;
